@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["base_fee"],{cbb8:function(e,n,l){"use strict";l.r(n);var s,u,a=l("2877"),b={},c=Object(a["a"])(b,s,u,!1,null,null,null);n["default"]=c.exports}}]);

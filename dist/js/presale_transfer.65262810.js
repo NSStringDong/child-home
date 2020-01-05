@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["presale_transfer"],{"64f2":function(n,e,l){"use strict";l.r(e);var s,a,p=l("2877"),r={},t=Object(p["a"])(r,s,a,!1,null,null,null);e["default"]=t.exports}}]);

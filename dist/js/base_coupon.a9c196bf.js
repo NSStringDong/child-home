@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["base_coupon"],{"61a2":function(n,o,u){"use strict";u.r(o);var a,e,l=u("2877"),p={},s=Object(l["a"])(p,a,e,!1,null,null,null);o["default"]=s.exports}}]);

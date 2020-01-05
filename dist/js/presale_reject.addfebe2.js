@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["presale_reject"],{8831:function(e,n,l){"use strict";l.r(n);var p,s,t=l("2877"),u={},a=Object(t["a"])(u,p,s,!1,null,null,null);n["default"]=a.exports}}]);

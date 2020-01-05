@@ -1,0 +1,7 @@
+
+    /*[class*=" el-icon-lx"], [class^=el-icon-lx] {
+        font-family: lx-iconfont!important;
+    }*/
+    [class^="xlr-salary-"], [class*="xlr-salary-"] {
+    	font-family:"iconfont" !important;
+    }
