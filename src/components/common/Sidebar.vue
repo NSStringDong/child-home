@@ -36,9 +36,41 @@ export default {
 		return {
 			collapse: false,
 			items: [{
-				icon: 'el-icon-s-platform',
+				icon: 'el-icon-s-home',
 				index: 'dashboard',
 				title: '系统首页'
+			}, {
+				icon: 'el-icon-menu',
+				index: 'school',
+				title: '幼儿园管理',
+				subs: [{
+					index: 'school_schoolList',
+					title: '幼儿园管理'
+				}]
+			}, {
+				icon: 'el-icon-user-solid',
+				index: 'student',
+				title: '学生管理',
+				subs: [{
+					index: 'student_studentList',
+					title: '学生管理'
+				}]
+			}, {
+				icon: 'el-icon-s-custom',
+				index: 'parent',
+				title: '家长管理',
+				subs: [{
+					index: 'parent_parentList',
+					title: '家长管理'
+				}]
+			}, {
+				icon: 'el-icon-s-cooperation',
+				index: 'data',
+				title: '数据管理',
+				subs: [{
+					index: 'defend_warning',
+					title: '数据管理'
+				}]
 			}, {
 				icon: 'el-icon-s-tools',
 				index: 'system',
@@ -47,16 +79,13 @@ export default {
 					index: 'system_user',
 					title: '用户管理'
 				}, {
-					index: 'system_form',
-					title: '组织管理'
-				}, {
 					index: 'system_player',
 					title: '角色管理'
 				}, {
 					index: 'system_right',
 					title: '权限管理'
 				}]
-			}, {
+			}/*, {
 				icon: 'el-icon-lx-warn',
 				index: '7',
 				title: '错误处理',
@@ -67,7 +96,7 @@ export default {
 					index: '404',
 					title: '404页面'
 				}]
-			}]
+			}*/]
 		};
 	},
 	computed: {

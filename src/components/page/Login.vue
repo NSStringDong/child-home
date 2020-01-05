@@ -55,10 +55,10 @@
                 if (value === '') {
                     callback(new Error('请输入密码'));
                     this.isDisable = true;
-                }else if (value.length < 6) {
+                }/*else if (value.length < 6) {
                     callback(new Error('密码不得小于六位'));
                     this.isDisable = true;
-                } else {
+                } */else {
                     this.isDisable = false;
                     callback();
                 }
@@ -93,20 +93,20 @@
                 })
                 */
                 let self = this;
-                let pwdString = this.$md5(self.loginData.password);
+                // let pwdString = this.$md5(self.loginData.password);
                 this.$http({
-                    url: "system/login",
-                    method: 'POST',
+                    url: "manager/login",
+                    method: 'GET',
                     data: {
-                        name: self.loginData.username,
-                        password: pwdString
+                        username: self.loginData.username,
+                        password: self.loginData.password
                     }
                 }).then((res) => {
                     console.info('login', res);
                     if (res) {
                         this.$message.success('登录成功');
                         localStorage.setItem('token', res.token);
-                        localStorage.setItem('username', res.realName);
+                        localStorage.setItem('username', res.manager.username);
                         this.$router.replace({
                             path: '/dashboard'
                         })
