@@ -1,37 +1,81 @@
 <style scoped>
 	.el-input,.el-select {
-	    width: 320px; 
+	    width: 140px; 
+	}
+	.search-name {
+		color: #8d8d8d;
+		font-size: 14px;
+		height: 40px;
+	}
+	.div-left {
+		margin-left: 5px;
+	}
+	.div-content {
+		justify-content: space-between;
+		flex-wrap: wrap;
+		flex-direction: row;
+		align-content: flex-start;
+		align-items: center;
 	}
 </style>
 <template>
 	<div class="list-content">
+		<div class="search-content div-content">
+			<div class="search-name">学生名称:
+				<el-input placeholder='请输入学生名称'clearable></el-input>
+			</div>
+			<div class="search-name">性别:
+				<el-select style="width: 100px">
+                    <el-option label="男" value="1"></el-option>
+                    <el-option label="女" value="2" selected></el-option>
+                </el-select>
+			</div>
+			<div class="search-name">学校名称:
+				<el-input placeholder='请输入学校名称'clearable></el-input>
+			</div>
+			<div class="search-name">幼儿园所在区域:
+				<el-select placeholder="请选择省份">
+                    <!-- <el-option v-for="item in provinceList" :key="item.regionCode" :label="item.regionName" :value="item.regionCode">
+                    </el-option> -->
+                </el-select>
+                <el-select class="div-left" placeholder="请选择城市">
+                    <!-- <el-option v-for="item in cityList" :key="item.regionCode" :label="item.regionName" :value="item.regionCode">
+                    </el-option> -->
+                </el-select>
+                <el-select class="div-left" placeholder="请选择地区">
+                    <!-- <el-option v-for="item in districtList" :key="item.regionCode" :label="item.regionName" :value="item.regionCode">
+                    </el-option> -->
+                </el-select>
+			</div>
+			<div class="search-name">家长手机号:
+				<el-input placeholder='请输入家长电话'clearable></el-input>
+			</div>
+			<div class="search-name">
+				<el-button type="primary" samll >查询</el-button>
+				<el-button type="danger" samll>重置</el-button>
+			</div>
+		</div>
 		<div class="search-content">
-			<div class="search-input">
-				<el-input placeholder='请输入幼儿园ID查询' v-model="key" @keyup.enter.native="getStudentList(1)" clearable>
-					<el-button slot="append" icon="el-icon-search" @click="getStudentList(1)"></el-button>
-				</el-input>
-			</div>
-			<div class="search-btn">
-				<el-button class="new-btn" type="primary" @click="showCreate">新增幼儿园</el-button>
-			</div>
+			<el-button type="primary" samll >新增学生信息</el-button>
+			<el-button type="primary" samll >导出学生信息</el-button>
+			<el-button type="primary" samll >下载导入模板</el-button>
+			<el-button type="primary" samll >导入学生信息</el-button>
 		</div>
 		<div class="table-content">
 			<!-- @filter-change="filterHandler" -->
 			<el-table :data="tableData" border stripe @cell-dblclick="goToDetail">
-				<el-table-column align="center" prop="id" label="ID" width="120px"></el-table-column>
-				<el-table-column align="center" prop="realName" label="姓名" width="120px"></el-table-column>
-				<el-table-column align="center" prop="name" label="用户名"></el-table-column>
-				<el-table-column align="center" prop="phone" label="手机号"></el-table-column>
-				<el-table-column align="center" prop="email" label="邮箱"></el-table-column>
-				<el-table-column align="center" prop="status" label="用户状态" width="120px"></el-table-column>
-				<el-table-column align="center" prop="organizationName" label="归属组织"></el-table-column>
-				<el-table-column align="center" prop="registTime" label="添加时间"></el-table-column>
-				<el-table-column align="center" label="操作" width="400px">
+				<el-table-column align="center" prop="name" label="学生姓名"></el-table-column>
+				<el-table-column align="center" prop="code" label="学号"></el-table-column>
+				<el-table-column align="center" prop="sex" label="性别"></el-table-column>
+				<el-table-column align="center" prop="schoolName" label="幼儿园名称"></el-table-column>
+				<el-table-column align="center" prop="birthDay" label="生日"></el-table-column>
+				<el-table-column align="center" prop="tieCard" label="绑定卡号"></el-table-column>
+				<el-table-column align="center" prop="parentPhone" label="家长手机号"></el-table-column>
+				<el-table-column align="center" prop="startHight" label="初始身高"></el-table-column>
+				<el-table-column align="center" label="操作">
 					<template slot-scope="scope">
-						<el-button type="info" samll @click="goToDetail(scope.row)">分配组织</el-button>
-						<el-button type="warning" samll @click="goToDetail(scope.row)">分配角色</el-button>
-						<el-button type="primary" samll @click="showUpdate(scope.row)">编辑</el-button>
-						<el-button type="danger" samll @click="showDeleteUser(scope.row)">删除</el-button>
+						<el-button type="primary" samll>编辑</el-button>
+						<el-button type="danger" samll>删除</el-button>
 					</template>
 				</el-table-column>
 			</el-table>
@@ -71,7 +115,16 @@
 		data() {
 			return {
 				key: '',
-				tableData: [],
+				tableData: [{
+					name: '测试',
+					code: '41108120150718',
+					sex: '男',
+					schoolName: '测试幼儿园',
+					birthDay: '2019-12-08',
+					tieCard: '41108120150718',
+					parentPhone: '13597699095',
+					startHight: '0'
+				}],
 				nowPage: null,
 				totalPage: null,
 				searchDate: '',
@@ -83,7 +136,7 @@
 			}
 		},
 		created() {
-			this.getStudentList(1);
+			// this.getStudentList(1);
 		},
 		mounted() {
 
